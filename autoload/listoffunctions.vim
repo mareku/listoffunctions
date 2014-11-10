@@ -13,14 +13,14 @@ function! listoffunctions#toggle()
   endfor
   try
     if &filetype=='python'
-        vim /\(def\|function\)\s*/ % | cw
-      elseif &filetype=='php'
-        vim /^\s*\(public\|protected\|private\)\=\s*\(static\)\=\s*function\s*(*/ % | cw
-      elseif &filetype=='vim'
-        vim /\(function\|function!\)\s/ % | cw
-      else
-        echo "unknown filetype"
-      endif
+      vim /\(def\|function\)\s*/ % | cw
+    elseif &filetype=='php'
+      vim /^\s*\(public\|protected\|private\)\=\s*\(static\)\=\s*function\s*(*/ % | cw
+    elseif &filetype=='vim'
+      vim /\(function\|function!\)\s/ % | cw
+    else
+      vim /function\s/ % | cw
+    endif
   catch
     echo "unknown gara"
   endtry
