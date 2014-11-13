@@ -18,8 +18,10 @@ function! listoffunctions#toggle()
       vim /^\s*\(public\|protected\|private\)\=\s*\(static\)\=\s*function\s*(*/ % | cw
     elseif &filetype=='vim'
       vim /\(function\|function!\)\s/ % | cw
+    elseif &filetype=='vb'
+      vim /\(sub\|function\)\s/ % | cw
     else
-      vim /function\s/ % | cw
+      echo "unknown type"
     endif
   catch
     echo "unknown gara"
